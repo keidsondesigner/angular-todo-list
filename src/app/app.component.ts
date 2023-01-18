@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {
-  title = 'projetoAngular2023';
+  title = 'Angular To do List';
 }

@@ -28,9 +28,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/bootstrap/scss/bootstrap.scss",
+              "src/style/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -96,7 +100,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/style/styles.scss"
             ],
             "scripts": []
           }
