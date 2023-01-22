@@ -17,32 +17,18 @@
 </section>
 <section class="justify-content-center row row-cols-1 mt-5">
   <div class="todos-list col-11 col-md-5">
-    <div class="todo-item align-items-center border-bottom d-flex mb-4 pb-4 completed">
+    <div *ngFor="let todo of todos" [class.completed]="todo.completed" class="todo-item align-items-center border-bottom d-flex mb-4 pb-4">
       <div class="check-box">
         <img class="icon-done" src="assets/icons/icon-done.svg">
       </div>
-      <div class="todo-text">
+      <div class="todo-text col-10">
         <p class="m-0 ms-4 me-3 me-md-0">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum tempore doloremque totam a nobis ad nostrum vero quidem accusantium! Tempora ab vel sunt voluptatibus reiciendis pariatur maxime distinctio. Accusamus, facilis.
+          {{ todo.text }}
         </p>
       </div>
-      <div class="todo-controls-box align-self-center align-self-md-end d-flex flex-column flex-md-row gap-4 gap-md-0">
-        <img class="icon-edit me-0 me-md-2" src="assets/icons/icon-edit.svg">
-        <img class="icon-delete" src="assets/icons/icon-delete.svg">
-      </div>
-    </div>
-    <div class="todo-item align-items-center border-bottom d-flex mb-4 pb-4 ">
-      <div class="check-box">
-        <img class="icon-done" src="assets/icons/icon-done.svg">
-      </div>
-      <div class="todo-text">
-        <p class="m-0 ms-4 me-3 me-md-0">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum tempore doloremque totam a nobis ad nostrum vero quidem accusantium!
-        </p>
-      </div>
-      <div class="todo-controls-box align-self-center align-self-md-end d-flex flex-column flex-md-row gap-4 gap-md-0">
-        <img class="icon-edit me-0 me-md-2" src="assets/icons/icon-edit.svg">
-        <img class="icon-delete" src="assets/icons/icon-delete.svg">
+      <div class="todo-controls-box col align-self-center align-self-md-end d-flex flex-column flex-md-row gap-4 gap-md-0">
+        <img (click)="editTodo()" class="icon-edit me-auto me-md-2" src="assets/icons/icon-edit.svg">
+        <img (click)="deleteTodo()" class="icon-delete" src="assets/icons/icon-delete.svg">
       </div>
     </div>
   </div>
