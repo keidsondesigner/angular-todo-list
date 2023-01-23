@@ -17,7 +17,7 @@ export class DataService {
     return this.todos;
   }
 
-  addTdod(todo: Todo){
+  addTodo(todo: Todo){
     this.todos.push(todo);
   }
 
