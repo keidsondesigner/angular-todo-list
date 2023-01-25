@@ -19,13 +19,6 @@ export class HomeComponent implements OnInit {
     this.todos = this.todoDataService.getAllTodos();
   }
 
-  editTodo(){
-    console.log('Editando');
-  }
-
-  deleteTodo(){
-    console.log('Deletedo');
-  }
 
   onFormSubmit(form: NgForm): boolean | void {
     console.log('FORM ENVIADO');
