@@ -13,10 +13,10 @@ export class HomeComponent implements OnInit {
 
   showValidationErrors: boolean = false;
 
-  constructor(private todoDataService: DataService) { }
+  constructor(private _todoDataService: DataService) { }
 
   ngOnInit(): void {
-    this.todos = this.todoDataService.getAllTodos();
+    this.todos = this._todoDataService.getAllTodos();
   }
 
 
@@ -28,9 +28,24 @@ export class HomeComponent implements OnInit {
       return this.showValidationErrors = true;
     }
 
-    this.todoDataService.addTodo(new Todo(form.value.text));
+    this._todoDataService.addTodo(new Todo(form.value.text));
 
     this.showValidationErrors = false;
     form.reset();
+  }
+
+  toggleCompletedTodo(todo: Todo) {
+    todo.completed = !todo.completed;
+    console.log("toggleCompletedTodo clicado!!!");
+  }
+
+  editTodo(todo: Todo) {
+    // pegando o index de cada todo do array de todos;
+    const index = this.todos.indexOf(todo);
+    // this._todoDataService.updateTodo()
+  }
+
+  deleteTodo(todo: Todo){
+
   }
 }
