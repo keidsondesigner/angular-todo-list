@@ -3,6 +3,9 @@ li {
 }
 
 .todo-item {
+  p {
+    cursor: pointer;
+  }
   .icon-done {
     height: 20px;
     width: 20px;

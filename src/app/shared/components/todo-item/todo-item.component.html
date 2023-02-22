@@ -1,16 +1,16 @@
-<ul *ngFor="let item of todos" class="p-0">
-  <li [class.completed]="item.completed" class="todo-item align-items-center border-bottom d-flex mb-4 pb-4">
+<ul class="p-0">
+  <li [class.completed]="todo.completed" (click)="onTodoClicked()" class="todo-item align-items-center border-bottom d-flex mb-4 pb-4">
     <div class="check-box">
       <img class="icon-done" src="assets/icons/icon-done.svg">
     </div>
     <div class="todo-text col-10">
       <p class="m-0 ms-4 me-3 me-md-0">
-        {{ item.text }}
+        {{ todo.text }}
       </p>
     </div>
-    <div class="todo-controls-box col align-self-center align-self-md-end d-flex flex-column flex-md-row gap-4 gap-md-0">
-      <img (click)="editTodo()" class="icon-edit me-auto me-md-2" src="assets/icons/icon-edit.svg">
-      <img (click)="deleteTodo()" class="icon-delete" src="assets/icons/icon-delete.svg">
+    <div (click)="$event.stopPropagation()" class="todo-controls-box col align-self-center align-self-md-end d-flex flex-column flex-md-row gap-4 gap-md-0">
+      <img (click)="onEditClicked()" class="icon-edit me-auto me-md-2" src="assets/icons/icon-edit.svg">
+      <img (click)="onDeleteClicked()" class="icon-delete" src="assets/icons/icon-delete.svg">
   </div>
   </li>
 </ul>
