@@ -1,3 +1,13 @@
+.container-geral {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.conteudo-princial {
+  flex: 1;
+}
+
 .heading-section {
   background: linear-gradient(to right, rgb(173, 14, 14), rgba(240, 74, 74));
   padding: 100px;

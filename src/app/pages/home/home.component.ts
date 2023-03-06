@@ -62,6 +62,7 @@ export class HomeComponent implements OnInit {
   }
 
   deleteTodo(todo: Todo){
-
+    const index = this.todos.indexOf(todo);
+    this._todoDataService.deleteTodo(index);
   }
 }
