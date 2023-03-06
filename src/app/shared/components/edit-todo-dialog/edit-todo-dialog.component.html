@@ -4,15 +4,37 @@
     <div class="field">
       <div class="control">
         <div class="form-floating w-100">
-          <input type="text" class="input" [ngModel]="todo.text" name="text"  class="border-0 border-bottom form-control rounded-0" id="floatingInput" placeholder="nome da tarefa">
+          <input
+            #todoTextField="ngModel"
+            [ngModel]="todo.text"
+            type="text"
+            name="text"
+            required
+            minlength="2"
+            class="border-0 border-bottom form-control rounded-0"
+            id="floatingInput"
+            placeholder="nome da tarefa"
+          >
           <label class="text-black-50" for="floatingInput">Nome da tarefa</label>
+        </div>
+        <div *ngIf="todoTextField.invalid">
+          <p *ngIf="todoTextField.errors?.['required']" class="help is-danger text-danger m-0 mt-1">
+            <small>
+              Campo tarefa está vazio, preencha com um texto.
+            </small>
+          </p>
+          <p *ngIf="todoTextField.errors?.['minlength']" class="help is-danger text-danger m-0 mt-1">
+            <small>
+              texto muito pequeno, que tal adicionar algo mais??
+            </small>
+          </p>
         </div>
       </div>
     </div>
 
     <div class="field is-grouped is-grouped-right mt-3">
       <div class="control d-flex justify-content-end">
-        <button type="button" (click)="close()" class="align-self-auto align-self-md-end border-0 btn btn-light fw-semibold h-50 ms-0 ms-md-3 mt-3 mt-md-0 rounded-1 text-black-50">Cancelar</button>
+        <button type="button" (click)="closeDialog()" class="align-self-auto align-self-md-end border-0 btn btn-light fw-semibold h-50 ms-0 ms-md-3 mt-3 mt-md-0 rounded-1 text-black-50">Cancelar</button>
         <button type="submit" class="align-self-auto align-self-md-end border-0 btn btn-secondary fw-semibold h-50 ms-0 ms-md-3 mt-3 mt-md-0 rounded-1 button-save">Salvar</button>
       </div>
     </div>

@@ -18,11 +18,12 @@ export class EditTodoDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  close() {
+  closeDialog() {
     this.dialogRef.close();
   }
 
   onFormSubmit(form: NgForm){
+    if(form.invalid) return;
     const upadatedTodo = {
       ...this.todo,
       ...form.value
